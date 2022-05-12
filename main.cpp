@@ -3,25 +3,10 @@
 #include <iterator>
 
 //template<class T>
-void Print_list(list<Abstr*>& l)
-{
-    size_t i = 0;
-    typename list<Abstr*>::iterator iter;
-    if (!l.empty())
-    {
-        for (iter = l.begin(); iter != l.end(); ++iter, ++i)
-        {
-            cout << "l[" << i << "] = ";
-            ((Abstr*)(*iter))->print();
-            cout << endl;
-        }
-    }
-    else
-        cout << "Список пуст!" << endl;
-}
 
 
-//////////////4.3///////////////
+
+//4.3//
 class Bas {
 public:
     int a;
@@ -98,24 +83,24 @@ int main() {
     }
     cout << "T1 = " << T1.Coord << " T2 = " << T2.Coord << endl;
 
-    //////////////4.5///////////////
+    //4.5//
     // 	   диаграмма классов
-    //////////////4.6///////////////
+    //4.6//
 
     // Abstr new_obj;
 
-    //////////////4.7///////////////
+    //4.7//
     Abstr* pAbs;
     Deriv1 d1(33);
     Deriv2 d2(44);
     Deriv3 d3(66);
 
-    //////////////4.8///////////////
+    //4.8//
     cout << "\t4.8\n";
     d1.print();
     d2.print();
     d3.print();
-    //////////////4.9///////////////
+    //4.9//
     cout << "\t4.9\n";
     Deriv1* pD2 = &d2;
     pD2->print();
@@ -123,40 +108,45 @@ int main() {
     pD2->print();
     pD2 = &d3;
     pD2->print();
-    //////////////4.10//////////////
+    //4.10//
     cout << "\t4.10\n";
     pAbs = &d2;
     pAbs->print();
-    //////////////4.11//////////////
-    list <Abstr*> ListDer;
-    //////////////4.12//////////////
+    //4.11//
+    list <Abstr*> ListOfDer;
+    //4.12//
+
     for (size_t i = 0; i < 3; ++i) {
         Deriv1* tmp1 = new Deriv1(i);
-        ListDer.push_back(tmp1);
+        ListOfDer.push_back(tmp1);
         //delete tmp1;
     }
+    
     for (size_t i = 3; i < 6; ++i) {
         Deriv2* tmp2 = new Deriv2(i);
-        ListDer.push_back(tmp2);
+        ListOfDer.push_back(tmp2);
         //delete tmp2;
     }
+
     for (size_t i = 6; i < 9; ++i) {
         Deriv3* tmp3 = new Deriv3(i);
-        ListDer.push_back(tmp3);
+        ListOfDer.push_back(tmp3);
         //delete tmp3;
     }
-    //////////////4.13///////////////
+    //4.13//
+    
     cout << "\t4.13\n";
-    Print_list(ListDer);
-    //////////////4.14///////////////
-    auto iter = ListDer.begin();
+    cout_of_list(ListOfDer);
+    
+    //4.14//
+    auto iterat = ListOfDer.begin();
     for (size_t i = 0; i < 6; ++i) {
-        ++iter;
+        ++iterat;
     }
-    ListDer.erase(iter);
+    ListOfDer.erase(iterat);
     cout << "\t4.14\n";
-    Print_list(ListDer);
-    /////////////4.15///////////////
+    cout_of_list(ListOfDer);
+    /////////////4.15//
     cout << "\t4.15\n";
     D d(2, 3, 4, 5);
     cout << " d51.B6::a = " << d.F::a << endl;

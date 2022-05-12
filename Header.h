@@ -2,6 +2,8 @@
 # include <list>
 using namespace std;
 
+
+
 ///////////////////4.4//////////////////
 class Abstr {
 public:
@@ -45,3 +47,22 @@ public:
     }
     virtual ~Deriv3() { cout << "iDPar = " << iDPar << " virtual Деструктор Deriv3 " << endl; }
 };
+
+
+
+void cout_of_list(list<Abstr*>& l)
+{
+    size_t i = 0;
+    typename list<Abstr*>::iterator iterat;
+    if (!l.empty())
+    {
+        for (iterat = l.begin(); iterat != l.end(); ++iterat, ++i)
+        {
+            cout << "l[" << i << "] = ";
+            ((Abstr*)(*iterat))->print();
+            cout << endl;
+        }
+    }
+    else
+        cout << "Список пуст!" << endl;
+}
